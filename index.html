@@ -4,10 +4,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SLAX HUB [ANDROID APK]</title>
-    <meta name="description" content="SLAX HUB is the greatest, safest, and most popular Roblox Executor. Download the official Delta Executor for Android today!"/>
+    <title>SLAX HUB [ANDROID & iOS]</title>
+    <meta name="description" content="SLAX HUB is the greatest, safest, and most popular Roblox Executor. Download the official SLAX HUB for Android and iOS today!"/>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,10 +14,10 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#4a0000',     /* أحمر غامق جداً */
-                            red: '#e50914',      /* أحمر ناصع */
-                            lightRed: '#ff3333', /* أحمر فاتح للتوهج */
-                            darkBg: '#0f0505',   /* خلفية داكنة مائلة للأحمر */
+                            dark: '#4a0000',
+                            red: '#e50914',
+                            lightRed: '#ff3333',
+                            darkBg: '#0f0505',
                         }
                     }
                 }
@@ -27,7 +26,6 @@
     </script>
     
     <style>
-        /* ستايل مخصص لضمان تداخل الفيديو في الخلفية وثبات التصميم */
         body {
             background-color: #0f0505;
             color: #f3f4f6;
@@ -35,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* خلفية الفيديو الممتدة */
         .video-background-container {
             position: fixed;
             top: 0;
@@ -58,7 +55,6 @@
             object-fit: cover;
         }
 
-        /* طبقة تظليل داكنة فوق الفيديو لتسهيل القراءة */
         .video-overlay {
             position: fixed;
             top: 0;
@@ -66,10 +62,9 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
-            background: linear-gradient(180deg, rgba(15, 5, 5, 0.85) 0%, rgba(15, 5, 5, 0.92) 100%);
+            background: linear-gradient(180deg, rgba(15, 5, 5, 0.3) 0%, rgba(15, 5, 5, 0.45) 100%);
         }
 
-        /* توهج باللون الأحمر للأزرار والعناصر الرئيسية */
         .red-glow-btn {
             background-color: #e50914;
             color: white;
@@ -89,7 +84,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* تخصيص شريط التمرير */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -107,42 +101,33 @@
 </head>
 <body class="relative min-h-screen">
 
-    <!-- فيديو الخلفية التفاعلي -->
     <div class="video-background-container">
         <video id="bgVideo" autoplay loop muted playsinline>
             <source src="https://www.image2url.com/r2/default/videos/1780752981484-e40064b4-e51c-4d2e-b422-9eb8bc5814a5.mp4" type="video/mp4">
-            متصفحك لا يدعم تشغيل هذا الفيديو.
         </video>
     </div>
     
-    <!-- طبقة التعتيم وتوزيع الألوان -->
     <div class="video-overlay"></div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
         
-        <!-- الهيدر (شريط التنقل العلوي) -->
         <header class="fixed top-0 left-0 right-0 z-50 flex w-full flex-col">
-            <nav class="mx-auto flex w-full flex-row items-center justify-between px-6 py-4 backdrop-blur-md bg-black/40 transition-all duration-200 lg:py-6 xl:px-32">
+            <nav class="mx-auto flex w-full flex-row items-center justify-between px-6 py-4 backdrop-blur-md bg-black/20 transition-all duration-200 lg:py-6 xl:px-32">
                 
-                <!-- شعار SLAX HUB البديل لدلتا -->
                 <div class="flex items-center gap-2">
-                    <a class="text-3xl font-extrabold uppercase tracking-wider text-gradient-red" href="/">SLAX HUB</a>
+                    <a class="text-3xl font-extrabold uppercase tracking-wider text-gradient-red" href="#" onclick="showView('android')">SLAX HUB</a>
                 </div>
 
-                <!-- قائمة الروابط الأصلية مع بقائها بدون تغيير -->
                 <ul class="hidden flex-row items-center space-x-6 space-x-reverse lg:flex">
-                    <li><a class="text-slate-300 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="/delta-executor-android">Android</a></li>
-                    <li><a class="text-slate-400 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="/delta-executor-ios">iOS</a></li>
-                    <li><a class="text-slate-400 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://shop.deltaexploits.gg" target="_blank">Shop</a></li>
-                    <li><a class="text-slate-400 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://status.deltaexploits.gg" target="_blank">Status</a></li>
-                    <li><a class="text-slate-400 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://discord.gg/deltax" target="_blank">Discord</a></li>
-                    <li><a class="text-slate-400 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://t.me/deltadyn" target="_blank">Telegram</a></li>
+                    <li><button onclick="showView('android')" class="text-slate-200 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red focus:outline-none">Android</button></li>
+                    <li><button onclick="showView('ios')" class="text-slate-300 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red focus:outline-none">iOS</button></li>
+                    <li><a class="text-slate-300 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://shop.deltaexploits.gg" target="_blank">Shop</a></li>
+                    <li><a class="text-slate-300 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://status.deltaexploits.gg" target="_blank">Status</a></li>
+                    <li><a class="text-slate-300 text-sm font-semibold uppercase transition-colors duration-200 hover:text-brand-red" href="https://discord.gg/9n8YV2KrzB" target="_blank">Discord</a></li>
                 </ul>
 
-                <!-- أزرار التحكم: زر كتم/تشغيل الصوت للمشغل وزر التحميل المباشر -->
                 <div class="flex items-center gap-4">
-                    <!-- زر تشغيل وإيقاف صوت الفيديو الخلفي مبرمج وجاهز -->
-                    <button id="toggleAudioBtn" onclick="toggleAudio()" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-black/60 hover:bg-brand-red/30 border border-brand-red/50 rounded-lg transition-all duration-200" title="تشغيل / إيقاف الصوت">
+                    <button id="toggleAudioBtn" onclick="toggleAudio()" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-black/40 hover:bg-brand-red/30 border border-brand-red/30 rounded-lg transition-all duration-200">
                         <svg id="audioIconMuted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-x text-brand-red">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                             <line x1="22" x2="16" y1="9" y2="15"></line>
@@ -156,210 +141,353 @@
                         <span id="audioText" class="hidden sm:inline">تشغيل الصوت</span>
                     </button>
 
-                    <button onclick="scrollToDownload()" class="red-glow-btn px-5 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider">Download</button>
+                    <button onclick="showView('downloads')" class="red-glow-btn px-5 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider">Download</button>
                     
-                    <!-- زر القائمة للهواتف المحمولة -->
                     <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-200 focus:outline-none" aria-label="More Options">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
                     </button>
                 </div>
             </nav>
 
-            <!-- القائمة المنسدلة للموبايل -->
-            <div id="mobileMenu" class="hidden lg:hidden flex flex-col bg-brand-darkBg/95 backdrop-blur-md border-b border-brand-red/20 px-6 py-4 space-y-3">
-                <a class="text-slate-300 text-base font-semibold block py-1" href="/delta-executor-android">Android</a>
-                <a class="text-slate-300 text-base font-semibold block py-1" href="/delta-executor-ios">iOS</a>
+            <div id="mobileMenu" class="hidden lg:hidden flex flex-col bg-brand-darkBg/90 backdrop-blur-md border-b border-brand-red/20 px-6 py-4 space-y-3">
+                <button onclick="showView('android'); toggleMobileMenu();" class="text-right text-slate-300 text-base font-semibold block py-1">Android</button>
+                <button onclick="showView('ios'); toggleMobileMenu();" class="text-right text-slate-300 text-base font-semibold block py-1">iOS</button>
                 <a class="text-slate-300 text-base font-semibold block py-1" href="https://shop.deltaexploits.gg" target="_blank">Shop</a>
                 <a class="text-slate-300 text-base font-semibold block py-1" href="https://status.deltaexploits.gg" target="_blank">Status</a>
-                <a class="text-slate-300 text-base font-semibold block py-1" href="https://discord.gg/deltax" target="_blank">Discord</a>
-                <a class="text-slate-300 text-base font-semibold block py-1" href="https://t.me/deltadyn" target="_blank">Telegram</a>
+                <a class="text-slate-300 text-base font-semibold block py-1" href="https://discord.gg/9n8YV2KrzB" target="_blank">Discord</a>
             </div>
         </header>
 
-        <!-- المحتوى الرئيسي للموقع -->
         <main class="flex-grow pt-24">
             
-            <!-- قسم الواجهة الرئيسية Hero Section -->
-            <section class="min-h-[90vh] flex items-center">
-                <div class="container mx-auto flex flex-col items-center px-6 py-12 md:flex-row max-w-7xl">
-                    
-                    <!-- الجزء النصي -->
-                    <div class="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:text-right lg:flex-grow lg:pl-12">
-                        <h1 class="mb-4 mt-6 flex flex-col items-center md:items-start text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
-                            Download Delta
-                            <span class="text-gradient-red flex flex-row items-center gap-x-3 mt-1">
-                                for Android 
-                                <!-- أيقونة أندرويد باللون الأحمر -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="fill-current text-brand-red" viewBox="0 0 16 16">
-                                    <path d="m10.213 1.471.691-1.26c.046-.083.03-.147-.048-.192-.085-.038-.15-.019-.195.058l-.7 1.27A4.832 4.832 0 0 0 8.005.941c-.688 0-1.34.135-1.956.404l-.7-1.27C5.303 0 5.239-.018 5.154.02c-.078.046-.094.11-.049.193l.691 1.259a4.25 4.25 0 0 0-1.673 1.476A3.697 3.697 0 0 0 3.5 5.02h9c0-.75-.208-1.44-.623-2.072a4.266 4.266 0 0 0-1.664-1.476ZM6.22 3.303a.367.367 0 0 1-.267.11.35.35 0 0 1-.263-.11.366.366 0 0 1-.107-.264.37.37 0 0 1 .107-.265.351.351 0 0 1 .263-.11c.103 0 .193.037.267.11a.36.36 0 0 1 .112.265.36.36 0 0 1-.112.264Zm4.101 0a.351.351 0 0 1-.262.11.366.366 0 0 1-.268-.11.358.358 0 0 1-.112-.264c0-.103.037-.191.112-.265a.367.367 0 0 1 .268-.11c.104 0 .19.037.262.11a.367.367 0 0 1 .107.265c0 .102-.035.19-.107.264ZM3.5 11.77c0 .294.104.544.311.75.208.204.46.307.76.307h.758l.01 2.182c0 .276.097.51.292.703a.961.961 0 0 0 .7.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h1.343v2.182c0 .276.097.51.292.703a.972.972 0 0 0 .71.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h.76c.291 0 .54-.103.749-.308.207-.205.311-.455.311-.75V5.365h-9v6.404Zm10.495-6.587a.983.983 0 0 0-.702.278.91.91 0 0 0-.293.685v4.063c0 .271.098.501.293.69a.97.97 0 0 0 .702.284c.28 0 .517-.095.712-.284a.924.924 0 0 0 .293-.69V6.146a.91.91 0 0 0-.293-.685.995.995 0 0 0-.712-.278Zm-12.702.283a.985.985 0 0 1 .712-.283c.273 0 .507.094.702.283a.913.913 0 0 1 .293.68v4.063a.932.932 0 0 1-.288.69.97.97 0 0 1-.707.284.986.986 0 0 1-.712-.284.924.924 0 0 1-.293-.69V6.146c0-.264.098-.491.293-.68Z"></path>
-                                </svg>
-                            </span>
-                        </h1>
-                        <p class="mt-4 max-w-2xl text-base leading-relaxed tracking-tight text-slate-300 sm:text-lg">
-                            SLAX HUB هو أفضل وأضمن طريقة لتجربة عالم البرمجة والسكربتات، مع مجموعة متكاملة ومذهلة من الميزات التي ستسهل استخدامك وتجعل تجربتك فريدة من نوعها.
-                        </p>
-                        
-                        <!-- أزرار التحميل الرئيسية -->
-                        <div class="mt-8 flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start">
-                            <button id="downloadSection" class="red-glow-btn px-8 py-4 rounded-xl flex items-center justify-center gap-x-3 text-lg font-bold transition-all">
-                                تحميل للاندرويد
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
-                            </button>
-                        </div>
-                        <div class="mt-4">
-                            <a class="text-sm underline text-red-400 hover:text-brand-lightRed transition-colors" href="/delta-executor-android-vn">Truy cập trang tải xuống tiếng Việt</a>
-                        </div>
-                    </div>
-                    
-                    <!-- الجزء الرسومي -->
-                    <div class="w-full md:w-1/2 flex justify-center">
-                        <div class="relative group">
-                            <!-- توهج خلفي للصورة باللون الأحمر -->
-                            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-red to-brand-dark opacity-40 blur-xl group-hover:opacity-75 transition duration-500"></div>
-                            <img alt="SLAX HUB Preview" class="relative rounded-2xl border border-brand-red/30 shadow-2xl w-full max-w-md md:max-w-lg transition-transform duration-500 hover:scale-105" src="https://placehold.co/750x375/3a0000/ffffff?text=SLAX+HUB"/>
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-
-            <!-- قسم طريقة التثبيت -->
-            <section class="bg-black/50 backdrop-blur-sm border-y border-brand-red/10">
-                <div class="flex flex-col items-center justify-center px-6 py-24 text-center sm:py-32">
-                    <span class="text-gradient-red text-base font-bold uppercase tracking-widest">طريقة التثبيت</span>
-                    <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-5xl">تثبيت SLAX HUB بكل سهولة</h2>
-                    <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-300">
-                        من خلال مشاهدة هذا الفيديو القصير، ستتعلم كيفية تثبيت التطبيق بسلاسة تامة، لتبدأ مباشرة في تنفيذ سكربتاتك الخاصة والاستمتاع بتجربتك.
-                    </p>
-                    
-                    <div class="mx-auto mt-12 w-full max-w-3xl">
-                        <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl border-2 border-brand-red/40 group">
-                            <!-- واجهة تشغيل مخصصة بالفيديو مدمجة -->
-                            <div class="absolute inset-0 flex items-center justify-center bg-black/60 group-hover:bg-black/40 transition-colors duration-300 cursor-pointer" onclick="playPromoVideo()">
-                                <div class="w-20 h-20 flex items-center justify-center rounded-full bg-brand-red/80 text-white group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 shadow-lg shadow-brand-red/50">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-play-fill translate-x-[2px]" viewBox="0 0 16 16">
-                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            <div id="androidView">
+                <section class="min-h-[85vh] flex items-center">
+                    <div class="container mx-auto flex flex-col items-center px-6 py-12 md:flex-row max-w-7xl">
+                        <div class="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:text-right lg:flex-grow lg:pl-12">
+                            <h1 class="mb-4 mt-6 flex flex-col items-center md:items-start text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+                                Download Delta
+                                <span class="text-gradient-red flex flex-row items-center gap-x-3 mt-1">
+                                    for Android 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="fill-current text-brand-red" viewBox="0 0 16 16">
+                                        <path d="m10.213 1.471.691-1.26c.046-.083.03-.147-.048-.192-.085-.038-.15-.019-.195.058l-.7 1.27A4.832 4.832 0 0 0 8.005.941c-.688 0-1.34.135-1.956.404l-.7-1.27C5.303 0 5.239-.018 5.154.02c-.078.046-.094.11-.049.193l.691 1.259a4.25 4.25 0 0 0-1.673 1.476A3.697 3.697 0 0 0 3.5 5.02h9c0-.75-.208-1.44-.623-2.072a4.266 4.266 0 0 0-1.664-1.476ZM6.22 3.303a.367.367 0 0 1-.267.11.35.35 0 0 1-.263-.11.366.366 0 0 1-.107-.264.37.37 0 0 1 .107-.265.351.351 0 0 1 .263-.11c.103 0 .193.037.267.11a.36.36 0 0 1 .112.265.36.36 0 0 1-.112.264Zm4.101 0a.351.351 0 0 1-.262.11.366.366 0 0 1-.268-.11.358.358 0 0 1-.112-.264c0-.103.037-.191.112-.265a.367.367 0 0 1 .268-.11c.104 0 .19.037.262.11a.367.367 0 0 1 .107.265c0 .102-.035.19-.107.264ZM3.5 11.77c0 .294.104.544.311.75.208.204.46.307.76.307h.758l.01 2.182c0 .276.097.51.292.703a.961.961 0 0 0 .7.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h1.343v2.182c0 .276.097.51.292.703a.972.972 0 0 0 .71.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h.76c.291 0 .54-.103.749-.308.207-.205.311-.455.311-.75V5.365h-9v6.404Zm10.495-6.587a.983.983 0 0 0-.702.278.91.91 0 0 0-.293.685v4.063c0 .271.098.501.293.69a.97.97 0 0 0 .702.284c.28 0 .517-.095.712-.284a.924.924 0 0 0 .293-.69V6.146a.91.91 0 0 0-.293-.685.995.995 0 0 0-.712-.278Zm-12.702.283a.985.985 0 0 1 .712-.283c.273 0 .507.094.702.283a.913.913 0 0 1 .293.68v4.063a.932.932 0 0 1-.288.69.97.97 0 0 1-.707.284.986.986 0 0 1-.712-.284.924.924 0 0 1-.293-.69V6.146c0-.264.098-.491.293-.68Z"></path>
                                     </svg>
-                                </div>
+                                </span>
+                            </h1>
+                            <p class="mt-4 max-w-2xl text-base leading-relaxed tracking-tight text-slate-200 sm:text-lg font-medium drop-shadow">
+                                SLAX HUB هو أفضل وأضمن طريقة لتجربة عالم البرمجة والسكربتات، مع مجموعة متكاملة ومذهلة من الميزات التي ستسهل استخدامك وتجعل تجربتك فريدة من نوعها.
+                            </p>
+                            
+                            <div class="mt-8 flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start">
+                                <button onclick="showView('downloads')" class="red-glow-btn px-8 py-4 rounded-xl flex items-center justify-center gap-x-3 text-lg font-bold transition-all">
+                                    تحميل للاندرويد
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                </button>
                             </div>
-                            <!-- فيديو توضيحي -->
-                            <video id="instructionVideo" class="w-full h-full object-cover" loop muted playsinline>
-                                <source src="https://www.image2url.com/r2/default/videos/1780752981484-e40064b4-e51c-4d2e-b422-9eb8bc5814a5.mp4" type="video/mp4">
-                            </video>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <div class="relative group">
+                                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-red to-brand-dark opacity-30 blur-xl group-hover:opacity-60 transition duration-500"></div>
+                                <img alt="SLAX HUB Preview" class="relative rounded-2xl border border-brand-red/20 shadow-2xl w-full max-w-md md:max-w-lg transition-transform duration-500 hover:scale-105" src="https://placehold.co/750x375/3a0000/ffffff?text=SLAX+HUB+ANDROID"/>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- قسم الميزات Features -->
-            <section id="features" class="py-24 sm:py-32">
-                <div class="mx-auto flex max-w-7xl flex-col items-center justify-center px-6">
-                    <span class="text-center">
-                        <span class="text-gradient-red text-base font-bold uppercase tracking-widest">التجربة الفائقة</span>
-                        <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-5xl">ارتقِ بطريقة استخدامك للسكربتات</h2>
-                        <p class="mt-4 max-w-3xl text-lg text-slate-300">
-                            يحتوي SLAX HUB على ميزات متطورة تم تجميعها لتجعل تجربتك في قمة السلاسة والسرعة.
+                <section class="bg-black/20 backdrop-blur-md border-y border-brand-red/10">
+                    <div class="flex flex-col items-center justify-center px-6 py-24 text-center sm:py-32">
+                        <span class="text-gradient-red text-base font-bold uppercase tracking-widest">طريقة التثبيت</span>
+                        <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-5xl">تثبيت SLAX HUB بكل سهولة</h2>
+                        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
+                            من خلال مشاهدة هذا الفيديو القصير، ستتعلم كيفية تثبيت التطبيق بسلاسة تامة، لتبدأ مباشرة في تنفيذ سكربتاتك الخاصة والاستمتاع بتجربتك.
                         </p>
-                    </span>
-
-                    <div class="mt-16 flex max-w-5xl flex-col items-center justify-center gap-6 w-full">
                         
-                        <!-- الميزة الرئيسية الكبرى مع تدرجات اللون الأحمر الداكن والأحمر المثير -->
-                        <div class="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark/90 via-brand-red/30 to-brand-dark/90 p-8 sm:p-14 border border-brand-red/30 backdrop-blur shadow-xl transition duration-300 hover:border-brand-red/60">
-                            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 justify-between">
-                                <div class="flex-1 text-right">
-                                    <span class="inline-flex items-center justify-center rounded-xl bg-brand-red p-4 shadow-lg shadow-brand-red/30">
-                                        <!-- أيقونة التميز -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 stroke-white"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" x2="12" y1="16" y2="8"></line></svg>
-                                    </span>
-                                    <h3 class="mt-6 text-2xl font-bold text-slate-100">تفوق على المنافسين</h3>
-                                    <p class="mt-4 text-slate-300 leading-relaxed text-base">
-                                        تميز عن الآخرين بميزات SLAX HUB الحصرية وتقنياته المتقدمة التي ستبهرك وتبهر متابعيك. لقد تم بناء ميزاتنا بدقة وعناية فائقة لضمان حصولك على تجربة برمجية فاخرة وسلسة مجهزة بمؤثرات بصرية مبهرة وتصميم فائق السرعة.
-                                    </p>
-                                    <div class="flex gap-x-4 mt-8">
-                                        <a target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg text-sm font-bold bg-white/10 hover:bg-brand-red border border-white/10 hover:border-brand-red transition-all" href="https://discord.gg/deltax">انضم إلينا على ديسكورد</a>
-                                        <a target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg text-sm font-bold bg-white/10 hover:bg-brand-red border border-white/10 hover:border-brand-red transition-all" href="https://t.me/deltadyn">انضم إلينا على تيليجرام</a>
+                        <div class="mx-auto mt-12 w-full max-w-3xl">
+                            <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl border-2 border-brand-red/30 group bg-black/40">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors duration-300 cursor-pointer" onclick="playPromoVideo('instructionVideo')">
+                                    <div class="w-20 h-20 flex items-center justify-center rounded-full bg-brand-red/90 text-white group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 shadow-lg shadow-brand-red/50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-play-fill translate-x-[2px]" viewBox="0 0 16 16">
+                                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                        </svg>
                                     </div>
                                 </div>
-                                <div class="w-full md:w-1/3 hidden md:block">
-                                    <img alt="SLAX HUB Showcase" class="rounded-xl shadow-2xl border border-brand-red/20 transform rotate-2 hover:rotate-0 transition duration-300" src="https://placehold.co/500x382/800000/ffffff?text=SLAX+UI"/>
+                                <video id="instructionVideo" class="w-full h-full object-cover" loop muted playsinline>
+                                    <source src="https://www.image2url.com/r2/default/videos/1780752981484-e40064b4-e51c-4d2e-b422-9eb8bc5814a5.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="features" class="py-24 sm:py-32">
+                    <div class="mx-auto flex max-w-7xl flex-col items-center justify-center px-6">
+                        <span class="text-center">
+                            <span class="text-gradient-red text-base font-bold uppercase tracking-widest">التجربة الفائقة</span>
+                            <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-5xl">ارتقِ بطريقة استخدامك للسكربتات</h2>
+                            <p class="mt-4 max-w-3xl text-lg text-slate-200">
+                                يحتوي SLAX HUB على ميزات متطورة تم تجميعها لتجعل تجربتك في قمة السلاسة والسرعة.
+                            </p>
+                        </span>
+
+                        <div class="mt-16 flex max-w-5xl flex-col items-center justify-center gap-6 w-full">
+                            <div class="relative w-full overflow-hidden rounded-2xl bg-gradient-to-br from-brand-dark/70 via-brand-red/10 to-brand-dark/70 p-8 sm:p-14 border border-brand-red/20 backdrop-blur-md shadow-xl transition duration-300 hover:border-brand-red/40">
+                                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 justify-between">
+                                    <div class="flex-1 text-right">
+                                        <span class="inline-flex items-center justify-center rounded-xl bg-brand-red p-4 shadow-lg shadow-brand-red/30">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 stroke-white"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" x2="12" y1="16" y2="8"></line></svg>
+                                        </span>
+                                        <h3 class="mt-6 text-2xl font-bold text-slate-100">تفوق على المنافسين</h3>
+                                        <p class="mt-4 text-slate-200 leading-relaxed text-base">
+                                            تميز عن الآخرين بميزات SLAX HUB الحصرية وتقنياته المتقدمة التي ستبهرك وتبهر متابعيك. لقد تم بناء ميزاتنا بدقة وعناية فائقة لضمان حصولك على تجربة برمجية فاخرة وسلسة مجهزة بمؤثرات بصرية مبهرة وتصميم فائق السرعة.
+                                        </p>
+                                        <div class="flex gap-x-4 mt-8">
+                                            <a target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-lg text-sm font-bold bg-white/10 hover:bg-brand-red border border-white/10 hover:border-brand-red transition-all" href="https://discord.gg/9n8YV2KrzB">انضم إلينا على ديسكورد</a>
+                                        </div>
+                                    </div>
+                                    <div class="w-full md:w-1/3 hidden md:block">
+                                        <img alt="SLAX HUB Showcase" class="rounded-xl shadow-2xl border border-brand-red/10 transform rotate-2 hover:rotate-0 transition duration-300" src="https://placehold.co/500x382/800000/ffffff?text=SLAX+UI"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 w-full">
+                                <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/10 bg-brand-darkBg/30 p-8 sm:p-10 backdrop-blur-md transition duration-300 hover:border-brand-red/30 hover:bg-brand-dark/10">
+                                    <span class="bg-brand-red/10 border border-brand-red/30 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><polygon points="13 19 22 12 13 5 13 19"></polygon><polygon points="2 19 11 12 2 5 2 19"></polygon></svg>
+                                    </span>
+                                    <h3 class="mt-5 text-xl font-bold text-slate-100">Fast Key System</h3>
+                                    <p class="mt-3 text-slate-300 leading-relaxed text-sm">
+                                        هل سئمت من فترات الانتظار الطويلة للحصول على المفتاح؟ لا تقلق بعد الآن! نظام تخطي المفاتيح الخاص بنا في SLAX HUB هو الأسرع والأقل إعلاناً في السوق. يستغرق الأمر 15 ثانية فقط بفضل نظامنا فائق الكفاءة.
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/10 bg-brand-darkBg/30 p-8 sm:p-10 backdrop-blur-md transition duration-300 hover:border-brand-red/30 hover:bg-brand-dark/10">
+                                    <span class="bg-brand-red/10 border border-brand-red/30 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                                    </span>
+                                    <h3 class="mt-5 text-xl font-bold text-slate-100">High Script Support</h3>
+                                    <p class="mt-3 text-slate-300 leading-relaxed text-sm">
+                                        وليس هذا فحسب، فنحن نمتلك محرك تشغيل السكربتات الداخلي العملاق "Gloop" مع دعم 100% للـ UNC، مما يتيح لـ SLAX HUB دعم وتثبيت جميع السكربتات المتاحة دون أدنى مشاكل أو انقطاع.
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/10 bg-brand-darkBg/30 p-8 sm:p-10 backdrop-blur-md transition duration-300 hover:border-brand-red/30 hover:bg-brand-dark/10">
+                                    <span class="bg-brand-red/10 border border-brand-red/30 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
+                                    </span>
+                                    <h3 class="mt-5 text-xl font-bold text-slate-100">Best Script Hub</h3>
+                                    <p class="mt-3 text-slate-300 leading-relaxed text-sm">
+                                        المفاجآت لم تنتهِ! باستخدام ميزة Script-hub الممتازة، يمكنك حفظ السكربتات المفضلة لديك وتشغيلها في أي وقت بنقرة واحدة، لتصبح مكتبتك الخاصة جاهزة معك في أي مكان وفي أي لعبة.
+                                    </p>
+                                </div>
+
+                                <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/10 bg-brand-darkBg/30 p-8 sm:p-10 backdrop-blur-md transition duration-300 hover:border-brand-red/30 hover:bg-brand-dark/10">
+                                    <span class="bg-brand-red/10 border border-brand-red/30 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+                                    </span>
+                                    <h3 class="mt-5 text-xl font-bold text-slate-100">User-Friendly UI</h3>
+                                    <p class="mt-3 text-slate-300 leading-relaxed text-sm">
+                                        أخيراً، نحن نفخر بواجهة المستخدم الأنيقة والسهلة للغاية والتي تتيح تصفحاً فائق السلاسة لكل الأقسام والميزات، لتودع أي غموض أو صعوبة في تشغيل السكربتات.
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+            </div>
 
-                        <!-- شبكة الميزات الأخرى بلون أحمر غامق ومثير ومتوهج -->
-                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 w-full">
+            <div id="iosView" class="hidden">
+                <section class="min-h-[85vh] flex items-center">
+                    <div class="container mx-auto flex flex-col items-center px-6 py-12 md:flex-row max-w-7xl">
+                        <div class="mb-16 flex flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:text-right lg:flex-grow lg:pl-12">
+                            <h1 class="mb-4 mt-6 flex flex-col items-center md:items-start text-4xl lg:text-6xl font-extrabold leading-tight tracking-tight text-white">
+                                Download Delta
+                                <span class="text-gradient-red flex flex-row items-center gap-x-3 mt-1">
+                                    for iOS 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="fill-current text-brand-red" viewBox="0 0 1024 1024">
+                                        <path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.6-57-155.5-127C46.7 790.7 0 663 0 541.8c0-194.4 126.4-297.5 250.8-297.5 66.1 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"></path>
+                                    </svg>
+                                </span>
+                            </h1>
+                            <p class="mt-4 max-w-2xl text-base leading-relaxed tracking-tight text-slate-200 sm:text-lg font-medium drop-shadow">
+                                SLAX HUB هو الطريقة الثورية الجديدة والآمنة تماماً لتشغيل سكربتات Roblox على نظام iOS بكل سهولة وسرعة ودون تعقيد.
+                            </p>
                             
-                            <!-- الميزة الأولى: Fast Key System -->
-                            <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/20 bg-brand-darkBg/60 p-8 sm:p-10 backdrop-blur transition duration-300 hover:border-brand-red/50 hover:bg-brand-dark/20">
-                                <span class="bg-brand-red/10 border border-brand-red/40 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/20">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><polygon points="13 19 22 12 13 5 13 19"></polygon><polygon points="2 19 11 12 2 5 2 19"></polygon></svg>
-                                </span>
-                                <h3 class="mt-5 text-xl font-bold text-slate-100">Fast Key System</h3>
-                                <p class="mt-3 text-slate-400 leading-relaxed">
-                                    هل سئمت من فترات الانتظار الطويلة للحصول على المفتاح؟ لا تقلق بعد الآن! نظام تخطي المفاتيح الخاص بنا في SLAX HUB هو الأسرع والأقل إعلاناً في السوق. يستغرق الأمر 15 ثانية فقط بفضل نظامنا فائق الكفاءة.
-                                </p>
+                            <div class="mt-8 flex flex-wrap gap-4 w-full justify-center md:justify-start">
+                                <button class="red-glow-btn px-6 py-3.5 rounded-xl flex items-center justify-center gap-x-2 text-sm font-bold transition-all">
+                                    Download IPA
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                </button>
+                                <button class="bg-white/10 hover:bg-brand-red border border-white/10 hover:border-brand-red px-6 py-3.5 rounded-xl flex items-center justify-center gap-x-2 text-sm font-bold transition-all">
+                                    Instructions
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                </button>
+                                <button class="bg-white/10 hover:bg-brand-red border border-white/10 hover:border-brand-red px-6 py-3.5 rounded-xl flex items-center justify-center gap-x-2 text-sm font-bold transition-all col-span-2">
+                                    Direct Install (UNOFFICIAL)
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                </button>
                             </div>
-
-                            <!-- الميزة الثانية: High Script Support -->
-                            <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/20 bg-brand-darkBg/60 p-8 sm:p-10 backdrop-blur transition duration-300 hover:border-brand-red/50 hover:bg-brand-dark/20">
-                                <span class="bg-brand-red/10 border border-brand-red/40 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/20">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><line x1="19" x2="5" y1="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
-                                </span>
-                                <h3 class="mt-5 text-xl font-bold text-slate-100">High Script Support</h3>
-                                <p class="mt-3 text-slate-400 leading-relaxed">
-                                    وليس هذا فحسب، فنحن نمتلك محرك تشغيل السكربتات الداخلي العملاق "Gloop" مع دعم 100% للـ UNC، مما يتيح لـ SLAX HUB دعم وتثبيت جميع السكربتات المتاحة دون أدنى مشاكل أو انقطاع.
-                                </p>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 flex justify-center">
+                            <div class="relative group">
+                                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-red to-brand-dark opacity-30 blur-xl group-hover:opacity-60 transition duration-500"></div>
+                                <img alt="SLAX HUB iOS Preview" class="relative rounded-2xl border border-brand-red/20 shadow-2xl w-full max-w-md md:max-w-lg transition-transform duration-500 hover:scale-105" src="https://placehold.co/750x441/3a0000/ffffff?text=SLAX+HUB+iOS"/>
                             </div>
+                        </div>
+                    </div>
+                </section>
 
-                            <!-- الميزة الثالث: Best Script Hub -->
-                            <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/20 bg-brand-darkBg/60 p-8 sm:p-10 backdrop-blur transition duration-300 hover:border-brand-red/50 hover:bg-brand-dark/20">
-                                <span class="bg-brand-red/10 border border-brand-red/40 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/20">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-                                </span>
-                                <h3 class="mt-5 text-xl font-bold text-slate-100">Best Script Hub</h3>
-                                <p class="mt-3 text-slate-400 leading-relaxed">
-                                    المفاجآت لم تنتهِ! باستخدام ميزة Script-hub الممتازة، يمكنك حفظ السكربتات المفضلة لديك وتشغيلها في أي وقت بنقرة واحدة، لتصبح مكتبتك الخاصة جاهزة معك في أي مكان وفي أي لعبة.
-                                </p>
+                <section class="bg-black/20 backdrop-blur-md border-y border-brand-red/10">
+                    <div class="flex flex-col items-center justify-center px-6 py-24 text-center sm:py-32">
+                        <span class="text-gradient-red text-base font-bold uppercase tracking-widest">طريقة التثبيت على iOS</span>
+                        <h2 class="mt-4 text-3xl font-extrabold text-slate-100 sm:text-5xl">تثبيت SLAX HUB iOS بكل سهولة</h2>
+                        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
+                            من خلال مشاهدة هذا الفيديو القصير، ستتعلم كيفية تثبيت التطبيق بسلاسة تامة، لتبدأ مباشرة في تنفيذ سكربتاتك الخاصة والاستمتاع بتجربتك على هواتف آيفون.
+                        </p>
+                        
+                        <div class="mx-auto mt-12 w-full max-w-3xl">
+                            <div class="relative aspect-video overflow-hidden rounded-2xl shadow-2xl border-2 border-brand-red/30 group bg-black/40">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors duration-300 cursor-pointer" onclick="playPromoVideo('iosInstructionVideo')">
+                                    <div class="w-20 h-20 flex items-center justify-center rounded-full bg-brand-red/90 text-white group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 shadow-lg shadow-brand-red/50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-play-fill translate-x-[2px]" viewBox="0 0 16 16">
+                                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <video id="iosInstructionVideo" class="w-full h-full object-cover" loop muted playsinline>
+                                    <source src="https://www.image2url.com/r2/default/videos/1780752981484-e40064b4-e51c-4d2e-b422-9eb8bc5814a5.mp4" type="video/mp4">
+                                </video>
                             </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-                            <!-- الميزة الرابعة: User-Friendly UI -->
-                            <div class="flex flex-col items-start text-right rounded-xl border border-brand-red/20 bg-brand-darkBg/60 p-8 sm:p-10 backdrop-blur transition duration-300 hover:border-brand-red/50 hover:bg-brand-dark/20">
-                                <span class="bg-brand-red/10 border border-brand-red/40 flex items-center justify-center rounded-xl p-3 shadow-sm shadow-brand-red/20">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 stroke-brand-red"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
-                                </span>
-                                <h3 class="mt-5 text-xl font-bold text-slate-100">User-Friendly UI</h3>
-                                <p class="mt-3 text-slate-400 leading-relaxed">
-                                    أخيراً، نحن نفخر بواجهة المستخدم الأنيقة والسهلة للغاية والتي تتيح تصفحاً فائق السلاسة لكل الأقسام والميزات، لتودع أي غموض أو صعوبة في تشغيل السكربتات.
-                                </p>
+            <div id="downloadsView" class="hidden max-w-3xl mx-auto px-6 py-12">
+                <div class="text-center mb-12">
+                    <span class="inline-flex items-center gap-2 font-mono text-xs tracking-wider uppercase text-brand-red border border-brand-red/30 px-3 py-1.5 rounded-full bg-brand-red/10">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                        Latest Release
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-black text-white mt-4">SLAX Android Updates</h1>
+                    <p class="text-slate-300 mt-2 text-base">حمل آخر تحديث مباشر ومطور لهاك الأندرويد الآن.</p>
+                </div>
+
+                <div class="bg-black/35 backdrop-blur-md border border-brand-red/25 rounded-2xl overflow-hidden shadow-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div class="flex items-center gap-4 text-right w-full sm:w-auto">
+                            <div class="w-14 h-14 rounded-xl bg-brand-red/10 border border-brand-red/30 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="fill-current text-brand-red" viewBox="0 0 16 16">
+                                    <path d="M2.76 3.061a.5.5 0 0 1 .118.693l-.707.962A.5.5 0 0 1 1.76 4.6l.707-.962a.5.5 0 0 1 .293-.117zm10.48 0a.5.5 0 0 1 .293.117l.707.962a.5.5 0 0 1-.412.116l-.707-.962a.5.5 0 0 1 .122-.693zM8 0a4 4 0 0 1 4 4v.266c-.035.153-.105.313-.23.44a.434.434 0 0 1-.303.125h-.548V13.5a1.5 1.5 0 0 1-1.5 1.5h-1.343v-2.182h-1.343V15H5.06a1.5 1.5 0 0 1-1.5-1.5V4.83H3.013a.434.434 0 0 1-.303-.125.434.434 0 0 1-.122-.32V4a4 4 0 0 1 4-4zm3.495 5.183c.123 0 .227-.1.227-.227V3.535a.227.227 0 0 0-.227-.228H10.15a.227.227 0 0 0-.227.228v1.42c0 .127.104.228.227.228h1.345zm-6.99 0h1.345c.123 0 .227-.1.227-.227V3.535a.227.227 0 0 0-.227-.228H4.505a.227.227 0 0 0-.227.228v1.42c0 .127.104.228.227.228z"/>
+                                </svg>
                             </div>
+                            <div class="flex-grow">
+                                <div class="text-lg font-bold text-white">Delta-2.721.1108.apk</div>
+                                <div class="flex items-center gap-4 text-xs font-mono text-slate-400 mt-1">
+                                    <span class="flex items-center gap-1">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                                        228.16 MB
+                                    </span>
+                                    <span class="flex items-center gap-1">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        May 21, 2026
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="triggerActualDownload('Delta-2.721.1108.apk')" class="red-glow-btn px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 w-full sm:w-auto text-base">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download
+                        </button>
+                    </div>
+                </div>
 
+                <div class="text-center font-mono text-xs text-slate-300 mt-6 bg-black/30 py-3 px-4 border border-brand-red/10 rounded-xl" id="countdown">
+                    سيتم بدء تحميل الملف تلقائياً خلال <span id="count" class="text-brand-red font-bold text-sm">10</span> ثوانٍ...
+                </div>
+
+                <div class="mt-16 border-t border-brand-red/10 pt-12 text-right">
+                    <span class="font-mono text-xs text-brand-red uppercase tracking-wider block mb-2">مميزات البنية الأساسية</span>
+                    <h3 class="text-2xl font-black text-white">تحميل سريع وفائق الموثوقية</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mt-2 max-w-2xl">
+                        لقد صممنا خوادم النقل والتحميل لتكون متوافقة وقريبة منك قدر الإمكان لتقديم السرعة القصوى مع الحفاظ على استمرارية التحميل في أي وقت وبدون انقطاع.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                        <div class="bg-black/30 backdrop-blur-sm border border-brand-red/10 rounded-xl p-5 text-center">
+                            <div class="text-2xl font-extrabold text-brand-red">99.9%</div>
+                            <div class="text-xs font-mono text-slate-400 uppercase mt-1">Uptime</div>
+                        </div>
+                        <div class="bg-black/30 backdrop-blur-sm border border-brand-red/10 rounded-xl p-5 text-center">
+                            <div class="text-2xl font-extrabold text-brand-red">&lt;50ms</div>
+                            <div class="text-xs font-mono text-slate-400 uppercase mt-1">Avg Latency</div>
+                        </div>
+                        <div class="bg-black/30 backdrop-blur-sm border border-brand-red/10 rounded-xl p-5 text-center">
+                            <div class="text-2xl font-extrabold text-brand-red">12M+</div>
+                            <div class="text-xs font-mono text-slate-400 uppercase mt-1">Downloads</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div class="flex items-start gap-4 p-5 bg-black/20 border border-brand-red/10 rounded-xl">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 flex items-center justify-center flex-shrink-0 text-brand-red font-bold">✓</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">حماية موثقة</h4>
+                                <p class="text-slate-400 text-xs mt-1">يتم فحص وتحديث الملفات بشكل يومي لضمان الأمان الكامل.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-5 bg-black/20 border border-brand-red/10 rounded-xl">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 flex items-center justify-center flex-shrink-0 text-brand-red font-bold">✓</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">سرعة قصوى</h4>
+                                <p class="text-slate-400 text-xs mt-1">يبدأ التحميل فور الضغط على الزر دون أي تأخير أو تخطي إجباري.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+
         </main>
 
-        <!-- الفوتر السفلي للموقع -->
-        <footer class="border-t border-brand-red/20 bg-black/80 py-8 backdrop-blur-md text-center">
-            <p class="text-slate-500 text-sm">
+        <footer class="border-t border-brand-red/10 bg-black/40 py-8 backdrop-blur-md text-center">
+            <p class="text-slate-400 text-sm">
                 © 2026 <span class="text-brand-red font-bold">SLAX HUB</span>. جميع الحقوق محفوظة لنسخ دلتا والأداء المطور.
             </p>
         </footer>
 
     </div>
 
-    <!-- السكريبتات اللازمة لإدارة الوظائف والتفاعل التفاعلي -->
     <script>
         const bgVideo = document.getElementById('bgVideo');
-        const instructionVideo = document.getElementById('instructionVideo');
+        const mobileMenu = document.getElementById('mobileMenu');
         const toggleAudioBtn = document.getElementById('toggleAudioBtn');
         const audioIconMuted = document.getElementById('audioIconMuted');
         const audioIconPlaying = document.getElementById('audioIconPlaying');
         const audioText = document.getElementById('audioText');
-        const mobileMenu = document.getElementById('mobileMenu');
+        
+        let countdownTimer = null;
 
-        // دالة تشغيل وكتم الصوت للفيديو الخلفي
+        function showView(viewName) {
+            document.getElementById('androidView').classList.add('hidden');
+            document.getElementById('iosView').classList.add('hidden');
+            document.getElementById('downloadsView').classList.add('hidden');
+
+            document.getElementById('instructionVideo').pause();
+            document.getElementById('iosInstructionVideo').pause();
+
+            if (viewName === 'android') {
+                document.getElementById('androidView').classList.remove('hidden');
+                stopCountdown();
+            } else if (viewName === 'ios') {
+                document.getElementById('iosView').classList.remove('hidden');
+                stopCountdown();
+            } else if (viewName === 'downloads') {
+                document.getElementById('downloadsView').classList.remove('hidden');
+                startCountdown('Delta-2.721.1108.apk');
+            }
+        }
+
         function toggleAudio() {
             if (bgVideo.muted) {
                 bgVideo.muted = false;
@@ -367,45 +495,79 @@
                 audioIconPlaying.classList.remove('hidden');
                 audioText.innerText = 'كتم الصوت';
                 toggleAudioBtn.classList.add('border-green-500/50');
-                toggleAudioBtn.classList.remove('border-brand-red/50');
+                toggleAudioBtn.classList.remove('border-brand-red/30');
             } else {
                 bgVideo.muted = true;
                 audioIconMuted.classList.remove('hidden');
                 audioIconPlaying.classList.add('hidden');
                 audioText.innerText = 'تشغيل الصوت';
                 toggleAudioBtn.classList.remove('border-green-500/50');
-                toggleAudioBtn.classList.add('border-brand-red/50');
+                toggleAudioBtn.classList.add('border-brand-red/30');
             }
         }
 
-        // دالة التنقل السلس لزر التحميل
-        function scrollToDownload() {
-            document.getElementById('downloadSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // دالة تشغيل الفيديو التوضيحي بالكامل
-        function playPromoVideo() {
-            if (instructionVideo.paused) {
-                instructionVideo.play();
-                instructionVideo.muted = false;
-                // كتم فيديو الخلفية لعدم تداخل الصوت
+        function playPromoVideo(videoId) {
+            const video = document.getElementById(videoId);
+            if (video.paused) {
+                video.play();
+                video.muted = false;
                 bgVideo.muted = true;
                 audioIconMuted.classList.remove('hidden');
                 audioIconPlaying.classList.add('hidden');
                 audioText.innerText = 'تشغيل الصوت';
             } else {
-                instructionVideo.pause();
+                video.pause();
             }
         }
 
-        // فتح وإغلاق قائمة الهاتف المحمول
         function toggleMobileMenu() {
             mobileMenu.classList.toggle('hidden');
         }
 
-        // تفاعل ترحيبي بسيط وصامت لضمان بدء الفيديو
+        function triggerActualDownload(fileName) {
+            const url = 'file/' + fileName;
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.setAttribute('aria-hidden', 'true');
+            iframe.setAttribute('tabindex', '-1');
+            iframe.src = url;
+            document.body.appendChild(iframe);
+            setTimeout(function() {
+                if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+            }, 10000);
+        }
+
+        function startCountdown(fileName) {
+            stopCountdown();
+            let remaining = 10;
+            const countEl = document.getElementById('count');
+            const countdownEl = document.getElementById('countdown');
+            countdownEl.classList.remove('hidden');
+            countEl.textContent = remaining;
+
+            countdownTimer = setInterval(function() {
+                remaining--;
+                countEl.textContent = remaining;
+                if (remaining <= 0) {
+                    stopCountdown();
+                    countdownEl.innerHTML = 'بدأ التحميل التلقائي الآن!';
+                    triggerActualDownload(fileName);
+                }
+            }, 1000);
+        }
+
+        function stopCountdown() {
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
+            }
+            const countdownEl = document.getElementById('countdown');
+            if (countdownEl) {
+                countdownEl.innerHTML = 'سيتم بدء تحميل الملف تلقائياً خلال <span id="count" class="text-brand-red font-bold text-sm">10</span> ثوانٍ...';
+            }
+        }
+
         document.addEventListener('click', function() {
-            // محاولة لتشغيل الفيديو إذا منع المتصفح التشغيل التلقائي
             if (bgVideo.paused) {
                 bgVideo.play();
             }
